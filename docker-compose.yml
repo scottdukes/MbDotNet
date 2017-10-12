@@ -4,7 +4,7 @@ services:
   
   mountebank:
     build:
-      context: ./docker/mountebank
+      context: ./docker/mountebank/linux
     ports:
     - "2525:2525"
     - "6000:6000"
