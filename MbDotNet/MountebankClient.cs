@@ -97,7 +97,7 @@ namespace MbDotNet
         {
             var imposter = await _requestProxy.GetHttpImposterAsync(port).ConfigureAwait(false);
 
-            ValidateRetrievedImposterProtocol(imposter, Protocol.Http);
+            //ValidateRetrievedImposterProtocol(imposter, Protocol.Http);
 
             return imposter;
         }
@@ -114,7 +114,7 @@ namespace MbDotNet
         {
             var imposter = await _requestProxy.GetTcpImposterAsync(port).ConfigureAwait(false);
 
-            ValidateRetrievedImposterProtocol(imposter, Protocol.Tcp);
+            //ValidateRetrievedImposterProtocol(imposter, Protocol.Tcp);
 
             return imposter;
         }
@@ -131,18 +131,18 @@ namespace MbDotNet
         {
             var imposter = await _requestProxy.GetHttpsImposterAsync(port).ConfigureAwait(false);
 
-            ValidateRetrievedImposterProtocol(imposter, Protocol.Https);
+            //ValidateRetrievedImposterProtocol(imposter, Protocol.Https);
 
             return imposter;
         }
 
-        private static void ValidateRetrievedImposterProtocol<T>(RetrievedImposter<T> imposter, Protocol expectedProtocol) where T: Request
-        {
-            if (!string.Equals(imposter.Protocol, expectedProtocol.ToString(), StringComparison.CurrentCultureIgnoreCase))
-            {
-                throw new InvalidProtocolException($"Expected a {expectedProtocol} imposter, but got a {imposter.Protocol} imposter.");
-            }
-        }
+        // private static void ValidateRetrievedImposterProtocol<T>(IRetrievedImposter<T> imposter, Protocol expectedProtocol) where T: Request
+        // {
+        //     if (!string.Equals(imposter.Protocol, expectedProtocol.ToString(), StringComparison.CurrentCultureIgnoreCase))
+        //     {
+        //         throw new InvalidProtocolException($"Expected a {expectedProtocol} imposter, but got a {imposter.Protocol} imposter.");
+        //     }
+        // }
 
         /// <summary>
         /// Deletes a single imposter from mountebank. Will also remove the imposter from the collection

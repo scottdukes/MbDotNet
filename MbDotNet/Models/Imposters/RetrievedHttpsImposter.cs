@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace MbDotNet.Models.Imposters
 {
-    public class RetrievedHttpsImposter : RetrievedImposter<HttpRequest>
+    public class RetrievedHttpsImposter : IRetrievedImposter<HttpRequest>
     {
         [JsonProperty("key")]
         public string Key { get; internal set; }
@@ -13,5 +13,9 @@ namespace MbDotNet.Models.Imposters
 
         [JsonProperty("mutualAuth")]
         public bool MutualAuthRequired { get; internal set; }
+
+        public int NumberOfRequests => throw new System.NotImplementedException();
+
+        public HttpRequest[] Requests => throw new System.NotImplementedException();
     }
 }
