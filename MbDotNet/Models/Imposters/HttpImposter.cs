@@ -20,5 +20,8 @@ namespace MbDotNet.Models.Imposters
             Stubs.Add(stub);
             return stub;
         }
+
+        [JsonProperty("allowCORS")]
+        public bool AllowCors { get; set; }
     }
 }
